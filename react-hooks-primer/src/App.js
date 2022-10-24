@@ -11,10 +11,15 @@ function App() {
   useEffect(() => {
     document.getElementById('1').textContent = `You weigh ${weight}, you ok with that?`;
   }, [ weight ]);
+  // If I omit [ weight ] here, then useEffect will be called every time
+  // the component re-renders--rather than only when weight changes.
 
   return (
     <div className="App">
-      <h1 id="1" class="comment">Comments here</h1>
+      <div>
+        <label>Weight Comment</label>
+        <div id="1" class="comment">Comments here</div>
+      </div>
       <p>Current Weight: {weight}</p>
       <p>Age: {age}</p>
       <p>Month: {month}</p>
