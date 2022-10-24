@@ -1,30 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-class OneChanceButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clicked: false,
-    };
-    this.handleClick = this.handleClick.bind(this);
+function OneChanceButton() {
+  const [clicked, setClicked] = useState(false);
+
+  function handleClick() {
+    return setClicked(true);
   }
 
-  handleClick() {
-    return this.setState({ clicked: true });
-  }
-
-  render() {
     return (
       <div>
         <button
-          onClick={this.handleClick}
-          disabled={this.state.clicked}
+          onClick={clicked ? undefined : handleClick}
+          disabled={clicked}
         >
           You Have One Chance to Click
         </button>
       </div>
     );
-  }
 }
 
 export default OneChanceButton;
