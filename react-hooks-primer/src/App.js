@@ -15,10 +15,12 @@ function App() {
   // the component re-renders--rather than only when weight changes.
 
   return (
+    // NOTE: In React, must use "className" for CSS classes instead
+    // of "class"; "class" is a keyword in ES6, used to declare a class.
     <div className="App">
       <div>
         <label>Weight Comment</label>
-        <div id="1" class="comment">Comments here</div>
+        <div id="1" className="comment">Comments here</div>
       </div>
       <p>Current Weight: {weight}</p>
       <p>Age: {age}</p>

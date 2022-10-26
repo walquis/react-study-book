@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+//ReactDOM.render(  // This is no longer supported as of React 18
   <React.StrictMode>
     <OneChanceButton />
     <App />
