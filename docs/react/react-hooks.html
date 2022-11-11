@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>React Hooks Primer - Chris&#x27;s Orientation to Javascript (ES6), React, and Randomly Related Topics</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../es6/overview.html"><strong aria-hidden="true">2.</strong> Javascript ES6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../es6/functions.html"><strong aria-hidden="true">2.1.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../es6/classes.html"><strong aria-hidden="true">2.2.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../es6/spread-rest.html"><strong aria-hidden="true">2.3.</strong> Spread and Rest</a></li><li class="chapter-item expanded "><a href="../es6/variables.html"><strong aria-hidden="true">2.4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../es6/language-features.html"><strong aria-hidden="true">2.5.</strong> Language Features</a></li><li class="chapter-item expanded "><a href="../es6/export-import.html"><strong aria-hidden="true">2.6.</strong> Export and Import</a></li><li class="chapter-item expanded "><a href="../es6/other-language-features.html"><strong aria-hidden="true">2.7.</strong> Other Language Features</a></li><li class="chapter-item expanded "><a href="../es6/destructuring.html"><strong aria-hidden="true">2.8.</strong> Destructuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../es6/destructuring/array.html"><strong aria-hidden="true">2.8.1.</strong> Array destructuring</a></li><li class="chapter-item expanded "><a href="../es6/destructuring/object.html"><strong aria-hidden="true">2.8.2.</strong> Object destructuring</a></li></ol></li><li class="chapter-item expanded "><a href="../es6/promises.html"><strong aria-hidden="true">2.9.</strong> Promises</a></li></ol></li><li class="chapter-item expanded "><a href="../react.html"><strong aria-hidden="true">3.</strong> React JS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../react/react-hooks.html" class="active"><strong aria-hidden="true">3.1.</strong> React Hooks Primer</a></li><li class="chapter-item expanded "><a href="../react/redux.html"><strong aria-hidden="true">3.2.</strong> Redux</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Chris&#x27;s Orientation to Javascript (ES6), React, and Randomly Related Topics</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>https://testdriven.io/blog/react-hooks-primer/ </p>
+<ul>
+<li>February 27th, 2019</li>
+</ul>
+<p>Well, React hooks help ease the aggravation of using complex higher order components to re-use stateful logic and relying on lifecycle methods that trigger unrelated logic. </p>
+<p>Outline:</p>
+<ul>
+<li>What are hooks?</li>
+<li>Why were they implemented in React?</li>
+<li>How are hooks used?</li>
+<li>Are there rules to using hooks?</li>
+<li>What is a custom hook?</li>
+<li>When should I use custom hooks?</li>
+<li>What are the benefits of using custom hooks?</li>
+</ul>
+<p>What are hooks?</p>
+<ul>
+<li>Hooks allow you to:
+<ul>
+<li>Use state and &quot;hook into&quot; the lifecycle methods in functional components.</li>
+<li>Re-use stateful logic between components, which simplifies component logic and, best of all, lets you skip writing classes.</li>
+</ul>
+</li>
+</ul>
+<p>Why were hooks implemented in React?</p>
+<ul>
+<li>With hooks, you can extract and share stateful logic between components.</li>
+<li>Simplify component logic.  When the inevitable exponential growth of logic appears in your application, simple components become a dizzying abyss of stateful logic and side effects. Lifecycle methods become cluttered with unrelated methods. A component's responsibilities grow and become inseparable.</li>
+<li>Skip [writing/using] classes - Classes are a huge part of React's architecture. Many benefits to classes, but a barrier to entry for beginners. With classes, you also have to remember to bind &quot;this&quot; to event handlers, and so code can become lengthy and a bit redundant. </li>
+</ul>
+<p>How are hooks used?</p>
+<pre><code>// Bring in these two hooks (yes, these methods ARE the 'hooks')...
+
+import { useState, useEffect } from 'react';
+</code></pre>
+<p>The best way to use the state hook is to destructure it and set the original value. The first parameter will be used to store the state, the second to update the state.</p>
+<p>For example:</p>
+<pre><code>const [weight, setWeight] = useState(150);
+
+onClick={() =&gt; setWeight(weight + 15)}
+</code></pre>
+<ul>
+<li>weight is the state</li>
+<li>setWeight is a method used to update the state</li>
+<li>useState(150) is the method used to set the initial value (any primitive type)</li>
+<li>It's worth noting that you can destructure the state hook many times in a single component:</li>
+</ul>
+<pre><code>const [age, setAge] = useState(42);
+const [month, setMonth] = useState('February');
+const [todos, setTodos] = useState([{ text: 'Eat pie' }]);
+</code></pre>
+<p>So, the component might look something like:</p>
+<pre><code>import React, { useState } from 'react';
+
+export default function App() {
+  const [weight, setWeight] = useState(150);
+  const [age] = useState(42);
+  const [month] = useState('February');
+  const [todos] = useState([{ text: 'Eat pie' }]);
+
+  return (
+    &lt;div className=&quot;App&quot;&gt;
+      &lt;p&gt;Current Weight: {weight}&lt;/p&gt;
+      &lt;p&gt;Age: {age}&lt;/p&gt;
+      &lt;p&gt;Month: {month}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setWeight(weight + 15)}&gt;
+        {todos[0].text}
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>The useEffect hook method</p>
+<p>It's best to use the effect hook like you would any common lifecycle method like componentDidMount, componentDidUpdate, and componentWillUnmount.</p>
+<p>// check out the variable count in the array at the end...
+useEffect(() =&gt; {
+document.title = <code>You clicked ${count} times</code>;
+}, [ count ]);</p>
+<p>Any time the component updates, useEffect will be called after render.</p>
+<ul>
+<li>Are there rules to using hooks?
+React hooks have rules. These rules may seem unconventional at first glance, but once you understand the basics of how React hooks are initiated the rules are quite easy to follow. 
+Plus, React has a linter to keep you from breaking the rules.</li>
+</ul>
+<p>(1) Hooks must be called in the same order, at the top level.
+Hooks create an array of hook calls to keep order. This order helps React tell the difference, for example, between multiple useState and useEffect method calls in a single component or across an application.</p>
+<ol>
+<li>On first render, the values -- 42, February, [{ text: 'Eat pie'}] -- are all pushed into a state array.</li>
+<li>When the component re-renders (NOTE: a re-render is NOT a page-refresh!), the useState method arguments are ignored.</li>
+<li>The values for age, month, and todos are retrieved from the component's state, which is the aforementioned state array.</li>
+</ol>
+<p>(2) Hooks cannot be called within conditional statements or loops.
+Because of the way that hooks are initiated, they are not allowed to be used within conditional statements or loops. For hooks, if the order of the initializations changes during a re-render, there is a good chance your application will not function properly. You can still use conditional statements and loops in your components, but not with hooks inside the code blocks.</p>
+<p>For example:</p>
+<p>// DON'T DO THIS!!
+const [DNAMatch, setDNAMatch] = useState(false)</p>
+<p>if (name) {
+setDNAMatch(true)
+const [name, setName] = useState(name)</p>
+<p>useEffect(function persistFamily() {
+localStorage.setItem('dad', name);
+}, []);
+}
+// DO THIS!!
+const [DNAMatch, setDNAMatch] = useState(false)
+const [name, setName] = useState(null)</p>
+<p>useEffect(() =&gt; {
+if (name) {
+setDNAMatch(true)
+setName(name)
+localStorage.setItem('dad', name);
+}
+}, []);</p>
+<p>(3) Hooks cannot be used in class components.
+Hooks must be initialized in either a functional component or in a custom hook function. Custom hook functions can only be called within a functional component and must follow the same rules as non-custom hooks.</p>
+<p>https://www.codecademy.com/resources/docs/react/lifecycle-methods</p>
+<p>Lifecycle Methods
+In React, lifecycle methods are unique event listeners that listen for changes during certain points a component‘s lifecycle. A component’s lifecycle usually runs in this order:</p>
+<ul>
+<li>Rendering/mounting a component to the DOM for the first time.</li>
+<li>Updating an existing component.</li>
+<li>Catching any errors associated with a component render-gone-wrong.</li>
+<li>Unmounting a component and removing it from the DOM.</li>
+<li>Lifecycle methods were originally exclusive to class components. But thanks to React hooks, even functional components can work with their lifecycle.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../react.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../react/redux.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../react.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../react/redux.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
