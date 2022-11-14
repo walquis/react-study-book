@@ -15,4 +15,5 @@
   - [Promises](./es6/promises.md)
 - [React JS](./react.md)
   - [React Hooks Primer](./react/react-hooks.md)
+  - [React Component LifeCycle ](./react/react-component-lifecycle.md)
   - [Redux](./react/redux.md)

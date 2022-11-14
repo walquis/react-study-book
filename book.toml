@@ -3,7 +3,7 @@ authors = ["Chris Walquist"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Chris's Orientation to Javascript (ES6), React, and Randomly Related Topics"
+title = "Chris's Self-Orientation on ES6 Javascript, React, & Related Topics"
 
 [build]
 build-dir = "docs"
