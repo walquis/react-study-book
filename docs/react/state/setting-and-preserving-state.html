@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Setting and Preserving State - Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../es6/overview.html"><strong aria-hidden="true">2.</strong> Javascript ES6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/functions.html"><strong aria-hidden="true">2.1.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../es6/classes.html"><strong aria-hidden="true">2.2.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../../es6/spread-rest.html"><strong aria-hidden="true">2.3.</strong> Spread and Rest</a></li><li class="chapter-item expanded "><a href="../../es6/variables.html"><strong aria-hidden="true">2.4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../es6/language-features.html"><strong aria-hidden="true">2.5.</strong> Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/export-import.html"><strong aria-hidden="true">2.6.</strong> Export and Import</a></li><li class="chapter-item expanded "><a href="../../es6/other-language-features.html"><strong aria-hidden="true">2.7.</strong> Other Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring.html"><strong aria-hidden="true">2.8.</strong> Destructuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/destructuring/array.html"><strong aria-hidden="true">2.8.1.</strong> Array destructuring</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring/object.html"><strong aria-hidden="true">2.8.2.</strong> Object destructuring</a></li></ol></li><li class="chapter-item expanded "><a href="../../es6/promises.html"><strong aria-hidden="true">2.9.</strong> Promises</a></li></ol></li><li class="chapter-item expanded "><a href="../../react.html"><strong aria-hidden="true">3.</strong> React JS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-hooks.html"><strong aria-hidden="true">3.1.</strong> React Hooks Primer</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> React State</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/state/setting-and-preserving-state.html" class="active"><strong aria-hidden="true">3.2.1.</strong> Setting and Preserving State</a></li><li class="chapter-item expanded "><a href="../../react/state/reducer-for-react-state.html"><strong aria-hidden="true">3.2.2.</strong> Consolidate State with a Reducer</a></li><li class="chapter-item expanded "><a href="../../react/state/context-for-passing-state.html"><strong aria-hidden="true">3.2.3.</strong> Context - Passing State deeply</a></li></ol></li><li class="chapter-item expanded "><a href="../../react/react-component-lifecycle.html"><strong aria-hidden="true">3.3.</strong> React Component LifeCycle </a></li><li class="chapter-item expanded "><a href="../../react/redux.html"><strong aria-hidden="true">3.4.</strong> Redux</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="setting-and-preserving-state"><a class="header" href="#setting-and-preserving-state">Setting and Preserving State</a></h1>
+<p>From https://beta.reactjs.org/learn/preserving-and-resetting-state</p>
+<h2 id="same-component-at-the-same-position-preserves-state"><a class="header" href="#same-component-at-the-same-position-preserves-state">Same component at the same position preserves state</a></h2>
+<p>React associates each piece of state it’s holding with the correct component by where that component sits in the UI tree.</p>
+<p>React preserves a component’s state for as long as the same component is being rendered at the same position in the UI tree.</p>
+<p>When a component gets removed, or a different component gets rendered at the same position, React destroys its state.</p>
+<pre><code>...
+// The Counter's state is preserved, whether fancy or not.
+// In React's UI tree, it sits just under &lt;div&gt; in both cases
+return (
+  &lt;div&gt;
+    {isFancy ? (
+      &lt;Counter isFancy={true} /&gt;
+    ) : (
+      &lt;Counter isFancy={false} /&gt;
+    )}
+  &lt;/div&gt;
+)
+...
+</code></pre>
+<pre><code>...
+// The Counter's state is NOT preserved!
+// 2nd instance is at different place in the UI tree
+return (
+  &lt;div&gt;
+    {isFancy ? (
+      &lt;Counter isFancy={true} /&gt;
+    ) : (
+      &lt;div&gt;
+        &lt;Counter isFancy={false} /&gt;
+      &lt;/div&gt;
+    )}
+  &lt;/div&gt;
+)
+...
+</code></pre>
+<p>One can think of them as having the same “address”, e.g., &quot;the first child of the first child of the root&quot;. This is how React matches them up between the previous and next renders, regardless of how you structure your logic.  React doesn’t know where you place the conditions in your function. All it “sees” is the tree you return.</p>
+<p>Also, the same component rendered under a different UI element--even though it's in same position under the UI element--resets the state of the component's entire subtree:</p>
+<pre><code>...
+// The Counter's state is destroyed if isFancy changes.
+// In React's UI tree, sitting just under &lt;div&gt; is a different
+// position than sitting just under &lt;section&gt;
+return (
+    {isFancy ? (
+      &lt;div&gt;
+        &lt;Counter /&gt;
+      &lt;/div&gt;
+    ) : (
+      &lt;section&gt;
+        &lt;Counter /&gt;
+      &lt;/section&gt;
+    )}
+)
+...
+</code></pre>
+<p>This is why you should not nest component function definitions:</p>
+<pre><code>export default function MyComponent() {
+  const [counter, setCounter] = useState(0);
+
+  // Every time MyComponent renders, a *different*
+  // MyTextField() function is being created, which
+  // means its state is lost.
+
+  function MyTextField() {
+    const [text, setText] = useState('');
+
+    return (
+      &lt;input
+        value={text}
+        onChange={e =&gt; setText(e.target.value)}
+      /&gt;
+    );
+  }
+
+  return (
+    &lt;&gt;
+      &lt;MyTextField /&gt;
+      &lt;button onClick={() =&gt; {
+        setCounter(counter + 1)
+      }}&gt;Clicked {counter} times&lt;/button&gt;
+    &lt;/&gt;
+  );
+}
+</code></pre>
+<h2 id="what-if-you-want-state-to-change-on-re-render"><a class="header" href="#what-if-you-want-state-to-change-on-re-render">What if you want state to change on re-render?</a></h2>
+<p>Two approaches:</p>
+<ol>
+<li>Put component in different position</li>
+<li>Give each component an explicit identity with <code>key</code></li>
+</ol>
+<h3 id="putting-same-component-in-different-position-resets-state"><a class="header" href="#putting-same-component-in-different-position-resets-state">Putting same component in different position resets state</a></h3>
+<p>This example illustrates a very tricky behavior. React creates positions for TWO <code>&lt;Counter /&gt;</code> components <em>even though one position is empty</em> due to the isFancy condition.  Therefore, state is destroyed when isFancy changes and the component is removed from one position and added to the other--but the <strong>position</strong> is there regardless.</p>
+<p>NOTE: A ternary operator can live inside a JSX expression, but an <code>if</code> statement cannot; the <code>if</code> must go outside the <code>return()</code>.</p>
+<pre><code>export default function Example() {
+  const [isFancy, setIsFancy] = useState(false);
+    return (
+      &lt;div&gt;
+        { isFancy &amp;&amp; &lt;Counter isFancy={isFancy} /&gt; }
+        {!isFancy &amp;&amp; &lt;Counter isFancy={isFancy} /&gt; }
+        &lt;label&gt;
+          &lt;input
+            type=&quot;checkbox&quot;
+            checked={isFancy}
+            onChange={e =&gt; { setIsFancy(e.target.checked) } }
+          /&gt;
+          Use fancy styling
+        &lt;/label&gt;
+      &lt;/div&gt;
+    );
+}
+</code></pre>
+<h3 id="giving-same-component-different-identity-with-key-resets-state"><a class="header" href="#giving-same-component-different-identity-with-key-resets-state">Giving same component different identity with <code>key</code> resets state</a></h3>
+<pre><code>// Resets state
+...
+return (
+  &lt;div&gt;
+    {isFancy ?
+      &lt;Counter isFancy={isFancy} key=&quot;A&quot; /&gt; :
+      &lt;Counter isFancy={isFancy} key=&quot;B&quot; /&gt;
+    }
+  &lt;/div&gt;
+)
+...
+</code></pre>
+<pre><code>// Does NOT reset state.  (The `id` prop does not differentiate components)
+...
+return (
+  &lt;div&gt;
+    {isFancy ?
+      &lt;Counter isFancy={isFancy} id=&quot;a&quot;/&gt; :
+      &lt;Counter isFancy={isFancy} id=&quot;b&quot;/&gt;
+    }
+  &lt;/div&gt;
+)
+...
+</code></pre>
+<p>Specifying a key tells React to use the key itself as part of the position, instead of their order within the parent.</p>
+<p>Remember that keys are not globally unique. They only specify the position <em>within</em> the parent.</p>
+<p>Also note that the above examples are working with drawing one component versus another; if BOTH components are being drawn, then a <code>key</code> field will serve to assign state to the correct component...see next example.</p>
+<h1 id="for-multiple-component-instances-key-field-helps-react-assign-correct-state-across-re-renders"><a class="header" href="#for-multiple-component-instances-key-field-helps-react-assign-correct-state-across-re-renders">For multiple component instances, <code>key</code> field helps React assign correct state across re-renders</a></h1>
+<pre><code>export default function App() {
+  const [reverse, setReverse] = useState(false);
+
+  // Cool, assigning a component to a variable!
+  let checkbox = (
+    &lt;label&gt;
+      &lt;input type=&quot;checkbox&quot; checked={reverse}
+        onChange={e =&gt; setReverse(e.target.checked)} /&gt;
+      Reverse order
+    &lt;/label&gt;
+  );
+
+  if (reverse) {
+    return (
+      &lt;&gt;
+        &lt;Field label=&quot;Last name&quot;  key=&quot;L&quot; /&gt;
+        &lt;Field label=&quot;First name&quot; key=&quot;F&quot; /&gt;
+        {checkbox}
+      &lt;/&gt;
+    );
+  } else {
+    return (
+      &lt;&gt;
+        &lt;Field label=&quot;First name&quot; key=&quot;F&quot; /&gt;
+        &lt;Field label=&quot;Last name&quot;  key=&quot;L&quot; /&gt;
+        {checkbox}
+      &lt;/&gt;
+    );
+  }
+}
+
+function Field({ label }) {
+  const [text, setText] = useState('');
+  return (
+    &lt;div&gt;
+      {label}:
+      &lt;input type=&quot;text&quot; value={text} placeholder={label}
+        onChange={e =&gt; setText(e.target.value)} /&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+<p>State is associated with the tree position. A <code>key</code> lets you specify a named position instead of relying on order.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<ul>
+<li>React keeps state for as long as the same component is rendered at the same position.</li>
+<li>State is not kept in JSX tags. It’s associated with the tree position in which you put that JSX.</li>
+<li>You can force a subtree to reset its state by giving it a different key.</li>
+<li>Don’t nest component definitions, or you’ll reset state by accident.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../react/react-hooks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../react/state/reducer-for-react-state.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../react/react-hooks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../react/state/reducer-for-react-state.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

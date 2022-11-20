@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Consolidate State with a Reducer - Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../es6/overview.html"><strong aria-hidden="true">2.</strong> Javascript ES6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/functions.html"><strong aria-hidden="true">2.1.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../es6/classes.html"><strong aria-hidden="true">2.2.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../../es6/spread-rest.html"><strong aria-hidden="true">2.3.</strong> Spread and Rest</a></li><li class="chapter-item expanded "><a href="../../es6/variables.html"><strong aria-hidden="true">2.4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../es6/language-features.html"><strong aria-hidden="true">2.5.</strong> Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/export-import.html"><strong aria-hidden="true">2.6.</strong> Export and Import</a></li><li class="chapter-item expanded "><a href="../../es6/other-language-features.html"><strong aria-hidden="true">2.7.</strong> Other Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring.html"><strong aria-hidden="true">2.8.</strong> Destructuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/destructuring/array.html"><strong aria-hidden="true">2.8.1.</strong> Array destructuring</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring/object.html"><strong aria-hidden="true">2.8.2.</strong> Object destructuring</a></li></ol></li><li class="chapter-item expanded "><a href="../../es6/promises.html"><strong aria-hidden="true">2.9.</strong> Promises</a></li></ol></li><li class="chapter-item expanded "><a href="../../react.html"><strong aria-hidden="true">3.</strong> React JS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-hooks.html"><strong aria-hidden="true">3.1.</strong> React Hooks Primer</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> React State</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/state/setting-and-preserving-state.html"><strong aria-hidden="true">3.2.1.</strong> Setting and Preserving State</a></li><li class="chapter-item expanded "><a href="../../react/state/reducer-for-react-state.html" class="active"><strong aria-hidden="true">3.2.2.</strong> Consolidate State with a Reducer</a></li><li class="chapter-item expanded "><a href="../../react/state/context-for-passing-state.html"><strong aria-hidden="true">3.2.3.</strong> Context - Passing State deeply</a></li></ol></li><li class="chapter-item expanded "><a href="../../react/react-component-lifecycle.html"><strong aria-hidden="true">3.3.</strong> React Component LifeCycle </a></li><li class="chapter-item expanded "><a href="../../react/redux.html"><strong aria-hidden="true">3.4.</strong> Redux</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="consolidate-state-with-a-reducer"><a class="header" href="#consolidate-state-with-a-reducer">Consolidate State with a Reducer</a></h1>
+<p>From <a href="https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer">https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer</a>.</p>
+<p>As your components grow in complexity, it can get harder to see at a glance all the different ways in which a component’s state gets updated.</p>
+<p>React reducers are a different way to handle state.  A reducer is a single function outside your component that consolidates all the state update logic into one place. </p>
+<p>Because the reducer function takes state as an argument, you can declare it outside of your component, which decreases the indentation level and can make your code easier to read.</p>
+<p>Because the reducer function is outside your component, it can be moved to a different file and imported.  Component logic can be easier to read when you separate concerns like this. Now the event handlers only specify <em>what happened</em> by dispatching actions, and the reducer function determines <em>how the state updates</em> in response to them.</p>
+<h2 id="why-is-it-called-a-reducer"><a class="header" href="#why-is-it-called-a-reducer">Why is it called a &quot;reducer&quot;?</a></h2>
+<p>The function you pass to reduce is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.</p>
+<p>This behavior is reminiscent of the <code>reduce()</code> operation on arrays, which takes an array and &quot;reduces&quot; many values down to one:</p>
+<pre><code>const arr = [1, 2, 3, 4, 5];
+const sum = arr.reduce(
+  (result, number) =&gt; result + number
+); // 1 + 2 + 3 + 4 + 5
+</code></pre>
+<p>React reducers embody the same idea: they take the state so far and the action, and return the next state. In this way, they transform sequential actions into sequential state changes.</p>
+<p>You can migrate from <code>useState</code> to <code>useReducer</code> in three steps:</p>
+<ol>
+<li>Move from setting state to <strong>dispatching actions</strong>.</li>
+<li><strong>Write a reducer function.</strong></li>
+<li>Wire up the reducer to your component.</li>
+</ol>
+<h2 id="event-handers-call-dispatchaction"><a class="header" href="#event-handers-call-dispatchaction">Event handers call <code>dispatch(action)</code>.</a></h2>
+<p>Managing state with reducers differs from directly setting state: Instead of telling React “what to do” by setting state, you specify “what the user just did” by dispatching “actions” from your event handlers.  This is more expressive of the user’s intent.</p>
+<p>So instead of “setting state” via an event handler, event handlers dispatch an action--e.g. “added/changed/deleted&quot;--on some state  (the state update logic still happens, but lives elsewhere).</p>
+<p>An action object can have any shape.</p>
+<p>By convention, it is common to give it a string type that describes what happened, and pass any additional information in other fields. The type is specific to a component, so in this example either 'added' or 'added_task' would be fine.</p>
+<pre><code>export default function TaskApp() {
+  const [state, dispatch] = useReducer(myReducer, initialState);
+
+  function handleSomeEvent(text) {
+    dispatch({
+      type: 'added',
+      id: nextId++,
+      text: text,
+    });
+  }
+  ...
+}
+</code></pre>
+<h2 id="write-a-reducer-function"><a class="header" href="#write-a-reducer-function">Write a reducer function</a></h2>
+<p>A reducer function is where the state logic lives. It accepts current state and action object as args, and returns the next state.  For instance...</p>
+<pre><code>function myReducer(state, action) {
+  if (action.type === 'added') {
+    return [
+      ...state,
+      {
+        id: action.id,
+        text: action.text,
+        done: false,
+      },
+    ];
+  } else if (
+  ...
+}
+</code></pre>
+<p>NOTE: <code>myReducer()</code> doesn't actually <strong>store</strong> the updated state--it merely returns it.  Storing state is the job of the <code>dispatch()</code> function returned by <code>useReducer()</code>.</p>
+<p>By the way: Instead of if/else statements, it’s a convention to use <code>switch</code> statements inside your reducers. The result is the same, but it can be easier to read <code>switch</code> statements at a glance.</p>
+<p>Reactjs.org recommends wrapping each case block with curly braces so that variables declared inside of different cases don’t clash with each other. Also, a case should usually end with a return. If you forget to return, the code will “fall through” to the next case, which can lead to mistakes!</p>
+<p>Or just use if/else.</p>
+<h2 id="3-wire-up-the-reducer-to-your-component"><a class="header" href="#3-wire-up-the-reducer-to-your-component">3. Wire up the reducer to your component</a></h2>
+<pre><code>import {useReducer} from 'react';
+</code></pre>
+<p>Replace useState:</p>
+<pre><code>const [tasks, setState] = useState(initialState);
+</code></pre>
+<p>with useReducer like so:</p>
+<pre><code>const [tasks, dispatch] = useReducer(myReducer, initialState);
+</code></pre>
+<p>All the state-setting that an event handler requires will now be done by myReducer, called via the <code>dispatch()</code> function returned from <code>useReducer()</code>.</p>
+<h2 id="usestate-versus-usereducer"><a class="header" href="#usestate-versus-usereducer"><code>useState</code> versus <code>useReducer</code></a></h2>
+<ul>
+<li><strong>Code size</strong>: Generally, <code>useState</code> requires less code upfront. <code>useReducer</code> means writing both a reducer function and dispatch actions. However, <code>useReducer</code> can DRY out code if many event handlers modify state in a similar way.</li>
+<li><strong>Readability</strong>: <code>useState</code> is easy to read when the state updates are simple. When they get more complex, they can bloat your component’s code and make it difficult to scan. In this case, <code>useReducer</code> lets you cleanly separate the how of update logic from the what happened of event handlers.</li>
+<li><strong>Debugging</strong>: When you have a bug with <code>useState,</code> it can be difficult to tell where the state was set incorrectly, and why. With <code>useReducer</code>, you can add a console log into your reducer to see every state update, and why it happened (due to which action). If each action is correct, you’ll know that the mistake is in the reducer logic itself. However, you have to step through more code than with <code>useState</code>.</li>
+<li><strong>Testing</strong>: A reducer is a pure function that doesn’t depend on your component. This means that you can export and test it separately in isolation. For complex state update logic it can be useful to assert that your reducer returns a particular state for a particular initial state and action.</li>
+<li><strong>Personal preference</strong>: You can always convert between <code>useState</code> and <code>useReducer</code>: they are equivalent.</li>
+</ul>
+<h2 id="writing-reducers-well"><a class="header" href="#writing-reducers-well">Writing reducers well</a></h2>
+<ol>
+<li><strong>Reducers must be pure.</strong> Similar to state updater functions, reducers run during rendering! (Actions are queued until the next render.) This means that reducers must be pure—same inputs always result in the same output. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update objects and arrays without mutations.</li>
+<li><strong>Each action describes a single user interaction</strong>, even if that leads to multiple changes in the data. For example, if a user presses “Reset” on a form with five fields managed by a reducer, it makes more sense to dispatch one reset_form action rather than five separate set_field actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../react/state/setting-and-preserving-state.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../react/state/context-for-passing-state.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../react/state/setting-and-preserving-state.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../react/state/context-for-passing-state.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
