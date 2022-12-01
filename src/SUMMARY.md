@@ -13,6 +13,8 @@
     - [Array destructuring](./es6/destructuring/array.md)
     - [Object destructuring](./es6/destructuring/object.md)
   - [Promises](./es6/promises.md)
+  - [Async and Await](./es6/async-await.md)
+  - [Generator Functions and Yield](./es6/generator-functions-and-yield.md)
 - [React JS](./react.md)
   - [React Hooks Primer](./react/react-hooks.md)
   - [React State]()
