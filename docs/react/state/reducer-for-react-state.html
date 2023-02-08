@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Consolidate State with a Reducer - Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</title>
+        <title>Reducers - Consolidate State - Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../es6/overview.html"><strong aria-hidden="true">2.</strong> Javascript ES6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/functions.html"><strong aria-hidden="true">2.1.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../es6/classes.html"><strong aria-hidden="true">2.2.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../../es6/spread-rest.html"><strong aria-hidden="true">2.3.</strong> Spread and Rest</a></li><li class="chapter-item expanded "><a href="../../es6/variables.html"><strong aria-hidden="true">2.4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../es6/language-features.html"><strong aria-hidden="true">2.5.</strong> Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/export-import.html"><strong aria-hidden="true">2.6.</strong> Export and Import</a></li><li class="chapter-item expanded "><a href="../../es6/other-language-features.html"><strong aria-hidden="true">2.7.</strong> Other Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring.html"><strong aria-hidden="true">2.8.</strong> Destructuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/destructuring/array.html"><strong aria-hidden="true">2.8.1.</strong> Array destructuring</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring/object.html"><strong aria-hidden="true">2.8.2.</strong> Object destructuring</a></li></ol></li><li class="chapter-item expanded "><a href="../../es6/promises.html"><strong aria-hidden="true">2.9.</strong> Promises</a></li><li class="chapter-item expanded "><a href="../../es6/async-await.html"><strong aria-hidden="true">2.10.</strong> Async and Await</a></li><li class="chapter-item expanded "><a href="../../es6/generator-functions-and-yield.html"><strong aria-hidden="true">2.11.</strong> Generator Functions and Yield</a></li></ol></li><li class="chapter-item expanded "><a href="../../react.html"><strong aria-hidden="true">3.</strong> React JS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-hooks.html"><strong aria-hidden="true">3.1.</strong> React Hooks Primer</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> React State</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/state/setting-and-preserving-state.html"><strong aria-hidden="true">3.2.1.</strong> Setting and Preserving State</a></li><li class="chapter-item expanded "><a href="../../react/state/reducer-for-react-state.html" class="active"><strong aria-hidden="true">3.2.2.</strong> Consolidate State with a Reducer</a></li><li class="chapter-item expanded "><a href="../../react/state/context-for-passing-state.html"><strong aria-hidden="true">3.2.3.</strong> Context - Passing State deeply</a></li></ol></li><li class="chapter-item expanded "><a href="../../react/react-component-lifecycle.html"><strong aria-hidden="true">3.3.</strong> React Component LifeCycle </a></li><li class="chapter-item expanded "><a href="../../react/redux.html"><strong aria-hidden="true">3.4.</strong> Redux</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../es6/overview.html"><strong aria-hidden="true">2.</strong> Javascript ES6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/functions.html"><strong aria-hidden="true">2.1.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../es6/classes.html"><strong aria-hidden="true">2.2.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../../es6/spread-rest.html"><strong aria-hidden="true">2.3.</strong> Spread and Rest</a></li><li class="chapter-item expanded "><a href="../../es6/variables.html"><strong aria-hidden="true">2.4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../es6/language-features.html"><strong aria-hidden="true">2.5.</strong> Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/export-import.html"><strong aria-hidden="true">2.6.</strong> Export and Import</a></li><li class="chapter-item expanded "><a href="../../es6/other-language-features.html"><strong aria-hidden="true">2.7.</strong> Other Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring.html"><strong aria-hidden="true">2.8.</strong> Destructuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/destructuring/array.html"><strong aria-hidden="true">2.8.1.</strong> Array destructuring</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring/object.html"><strong aria-hidden="true">2.8.2.</strong> Object destructuring</a></li></ol></li><li class="chapter-item expanded "><a href="../../es6/promises.html"><strong aria-hidden="true">2.9.</strong> Promises</a></li><li class="chapter-item expanded "><a href="../../es6/async-await.html"><strong aria-hidden="true">2.10.</strong> Async and Await</a></li><li class="chapter-item expanded "><a href="../../es6/generator-functions-and-yield.html"><strong aria-hidden="true">2.11.</strong> Generator Functions and Yield</a></li></ol></li><li class="chapter-item expanded "><a href="../../react.html"><strong aria-hidden="true">3.</strong> React JS..JSX..Event Handlers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-component-lifecycle.html"><strong aria-hidden="true">3.1.</strong> React Component LifeCycle </a></li><li class="chapter-item expanded "><a href="../../react/state.html"><strong aria-hidden="true">3.2.</strong> React State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/state/setting-and-preserving-state.html"><strong aria-hidden="true">3.2.1.</strong> Setting and Preserving State across Re-renders</a></li><li class="chapter-item expanded "><a href="../../react/react-hooks.html"><strong aria-hidden="true">3.2.2.</strong> React Hooks For Managing State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-hooks/use-state.html"><strong aria-hidden="true">3.2.2.1.</strong> useState()</a></li><li class="chapter-item expanded "><a href="../../react/react-hooks/use-effect.html"><strong aria-hidden="true">3.2.2.2.</strong> useEffect()</a></li></ol></li><li class="chapter-item expanded "><a href="../../react/state/reducer-for-react-state.html" class="active"><strong aria-hidden="true">3.2.3.</strong> Reducers - Consolidate State</a></li><li class="chapter-item expanded "><a href="../../react/state/context-for-passing-state.html"><strong aria-hidden="true">3.2.4.</strong> Context API - Passing State deeply</a></li><li class="chapter-item expanded "><a href="../../react/redux.html"><strong aria-hidden="true">3.2.5.</strong> Redux - alternative to the Context API</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -135,20 +135,27 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="consolidate-state-with-a-reducer"><a class="header" href="#consolidate-state-with-a-reducer">Consolidate State with a Reducer</a></h1>
-<p>From <a href="https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer">https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer</a>.</p>
-<p>As your components grow in complexity, it can get harder to see at a glance all the different ways in which a component’s state gets updated.</p>
-<p>React reducers are a different way to handle state.  A reducer is a single function outside your component that consolidates all the state update logic into one place. </p>
-<p>Because the reducer function takes state as an argument, you can declare it outside of your component, which decreases the indentation level and can make your code easier to read.</p>
-<p>Because the reducer function is outside your component, it can be moved to a different file and imported.  Component logic can be easier to read when you separate concerns like this. Now the event handlers only specify <em>what happened</em> by dispatching actions, and the reducer function determines <em>how the state updates</em> in response to them.</p>
+<p>From <a href="https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer">beta.reactjs.org, extracting state logic into a reducer</a>.</p>
+<p>As a component grows in complexity, it gets harder to see how its state gets updated.</p>
+<p>A <strong>React reducer</strong> is a single function outside your component that consolidates all the state update logic into one place. </p>
+<p>The reducer function takes state as an argument; hence, you can declare it outside of your component, and even move it to a different file and import it, which simplifies your component and makes your code easier to read.</p>
+<p>Reducers allow the component logic to separate concerns: </p>
+<ol>
+<li>The event handlers only specify <em>what happened</em> by dispatching actions, and</li>
+<li>the reducer function determines <em>how the state updates</em> in response to those actions.</li>
+</ol>
 <h2 id="why-is-it-called-a-reducer"><a class="header" href="#why-is-it-called-a-reducer">Why is it called a &quot;reducer&quot;?</a></h2>
-<p>The function you pass to reduce is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.</p>
-<p>This behavior is reminiscent of the <code>reduce()</code> operation on arrays, which takes an array and &quot;reduces&quot; many values down to one:</p>
+<p>The function you pass to reduce is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.  This behavior is reminiscent of the <code>reduce()</code> operation on arrays, which takes an array and &quot;reduces&quot; many values down to one:</p>
 <pre><code>const arr = [1, 2, 3, 4, 5];
 const sum = arr.reduce(
+  //  The reducer accumulates its work in the &quot;result&quot; variable:
   (result, number) =&gt; result + number
 ); // 1 + 2 + 3 + 4 + 5
 </code></pre>
-<p>React reducers embody the same idea: they take the state so far and the action, and return the next state. In this way, they transform sequential actions into sequential state changes.</p>
+<p>React reducers embody the same idea: they take the state so far (analogous to the <code>result</code> variable above) and the action (analogous to the current iteration's <code>number</code>), and return the next state.</p>
+<blockquote>
+<p>In this way, reducers transform sequential actions into sequential state changes.</p>
+</blockquote>
 <p>You can migrate from <code>useState</code> to <code>useReducer</code> in three steps:</p>
 <ol>
 <li>Move from setting state to <strong>dispatching actions</strong>.</li>
@@ -221,7 +228,7 @@ const sum = arr.reduce(
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../react/state/setting-and-preserving-state.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../react/react-hooks/use-effect.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                             <a rel="next" href="../../react/state/context-for-passing-state.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
@@ -233,7 +240,7 @@ const sum = arr.reduce(
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../react/state/setting-and-preserving-state.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../react/react-hooks/use-effect.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                     <a rel="next" href="../../react/state/context-for-passing-state.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
@@ -243,22 +250,6 @@ const sum = arr.reduce(
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>

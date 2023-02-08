@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Setting and Preserving State - Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</title>
+        <title>Setting and Preserving State across Re-renders - Chris&#x27;s Self-Orientation on ES6 Javascript, React, &amp; Related Topics</title>
         <!-- Custom HTML head -->
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
@@ -75,7 +75,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../es6/overview.html"><strong aria-hidden="true">2.</strong> Javascript ES6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/functions.html"><strong aria-hidden="true">2.1.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../es6/classes.html"><strong aria-hidden="true">2.2.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../../es6/spread-rest.html"><strong aria-hidden="true">2.3.</strong> Spread and Rest</a></li><li class="chapter-item expanded "><a href="../../es6/variables.html"><strong aria-hidden="true">2.4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../es6/language-features.html"><strong aria-hidden="true">2.5.</strong> Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/export-import.html"><strong aria-hidden="true">2.6.</strong> Export and Import</a></li><li class="chapter-item expanded "><a href="../../es6/other-language-features.html"><strong aria-hidden="true">2.7.</strong> Other Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring.html"><strong aria-hidden="true">2.8.</strong> Destructuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/destructuring/array.html"><strong aria-hidden="true">2.8.1.</strong> Array destructuring</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring/object.html"><strong aria-hidden="true">2.8.2.</strong> Object destructuring</a></li></ol></li><li class="chapter-item expanded "><a href="../../es6/promises.html"><strong aria-hidden="true">2.9.</strong> Promises</a></li><li class="chapter-item expanded "><a href="../../es6/async-await.html"><strong aria-hidden="true">2.10.</strong> Async and Await</a></li><li class="chapter-item expanded "><a href="../../es6/generator-functions-and-yield.html"><strong aria-hidden="true">2.11.</strong> Generator Functions and Yield</a></li></ol></li><li class="chapter-item expanded "><a href="../../react.html"><strong aria-hidden="true">3.</strong> React JS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-hooks.html"><strong aria-hidden="true">3.1.</strong> React Hooks Primer</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> React State</div></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/state/setting-and-preserving-state.html" class="active"><strong aria-hidden="true">3.2.1.</strong> Setting and Preserving State</a></li><li class="chapter-item expanded "><a href="../../react/state/reducer-for-react-state.html"><strong aria-hidden="true">3.2.2.</strong> Consolidate State with a Reducer</a></li><li class="chapter-item expanded "><a href="../../react/state/context-for-passing-state.html"><strong aria-hidden="true">3.2.3.</strong> Context - Passing State deeply</a></li></ol></li><li class="chapter-item expanded "><a href="../../react/react-component-lifecycle.html"><strong aria-hidden="true">3.3.</strong> React Component LifeCycle </a></li><li class="chapter-item expanded "><a href="../../react/redux.html"><strong aria-hidden="true">3.4.</strong> Redux</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="../../es6/overview.html"><strong aria-hidden="true">2.</strong> Javascript ES6</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/functions.html"><strong aria-hidden="true">2.1.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../../es6/classes.html"><strong aria-hidden="true">2.2.</strong> Classes</a></li><li class="chapter-item expanded "><a href="../../es6/spread-rest.html"><strong aria-hidden="true">2.3.</strong> Spread and Rest</a></li><li class="chapter-item expanded "><a href="../../es6/variables.html"><strong aria-hidden="true">2.4.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../../es6/language-features.html"><strong aria-hidden="true">2.5.</strong> Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/export-import.html"><strong aria-hidden="true">2.6.</strong> Export and Import</a></li><li class="chapter-item expanded "><a href="../../es6/other-language-features.html"><strong aria-hidden="true">2.7.</strong> Other Language Features</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring.html"><strong aria-hidden="true">2.8.</strong> Destructuring</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../es6/destructuring/array.html"><strong aria-hidden="true">2.8.1.</strong> Array destructuring</a></li><li class="chapter-item expanded "><a href="../../es6/destructuring/object.html"><strong aria-hidden="true">2.8.2.</strong> Object destructuring</a></li></ol></li><li class="chapter-item expanded "><a href="../../es6/promises.html"><strong aria-hidden="true">2.9.</strong> Promises</a></li><li class="chapter-item expanded "><a href="../../es6/async-await.html"><strong aria-hidden="true">2.10.</strong> Async and Await</a></li><li class="chapter-item expanded "><a href="../../es6/generator-functions-and-yield.html"><strong aria-hidden="true">2.11.</strong> Generator Functions and Yield</a></li></ol></li><li class="chapter-item expanded "><a href="../../react.html"><strong aria-hidden="true">3.</strong> React JS..JSX..Event Handlers</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-component-lifecycle.html"><strong aria-hidden="true">3.1.</strong> React Component LifeCycle </a></li><li class="chapter-item expanded "><a href="../../react/state.html"><strong aria-hidden="true">3.2.</strong> React State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/state/setting-and-preserving-state.html" class="active"><strong aria-hidden="true">3.2.1.</strong> Setting and Preserving State across Re-renders</a></li><li class="chapter-item expanded "><a href="../../react/react-hooks.html"><strong aria-hidden="true">3.2.2.</strong> React Hooks For Managing State</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../react/react-hooks/use-state.html"><strong aria-hidden="true">3.2.2.1.</strong> useState()</a></li><li class="chapter-item expanded "><a href="../../react/react-hooks/use-effect.html"><strong aria-hidden="true">3.2.2.2.</strong> useEffect()</a></li></ol></li><li class="chapter-item expanded "><a href="../../react/state/reducer-for-react-state.html"><strong aria-hidden="true">3.2.3.</strong> Reducers - Consolidate State</a></li><li class="chapter-item expanded "><a href="../../react/state/context-for-passing-state.html"><strong aria-hidden="true">3.2.4.</strong> Context API - Passing State deeply</a></li><li class="chapter-item expanded "><a href="../../react/redux.html"><strong aria-hidden="true">3.2.5.</strong> Redux - alternative to the Context API</a></li></ol></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -135,10 +135,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="setting-and-preserving-state"><a class="header" href="#setting-and-preserving-state">Setting and Preserving State</a></h1>
-<p>From https://beta.reactjs.org/learn/preserving-and-resetting-state</p>
-<h2 id="same-component-at-the-same-position-preserves-state"><a class="header" href="#same-component-at-the-same-position-preserves-state">Same component at the same position preserves state</a></h2>
-<p>React associates each piece of state it’s holding with the correct component by where that component sits in the UI tree.</p>
-<p>React preserves a component’s state for as long as the same component is being rendered at the same position in the UI tree.</p>
+<p>From <a href="https://beta.reactjs.org/learn/preserving-and-resetting-state">beta.reactjs.org, preserving and resetting state</a></p>
+<p>For each component, React associates its state with that component's location in the UI tree.</p>
+<p>React preserves a component’s state for as long as that same component is being rendered at the same position in the UI tree.</p>
+<blockquote>
+<p>Same component at the same position preserves state</p>
+</blockquote>
 <p>When a component gets removed, or a different component gets rendered at the same position, React destroys its state.</p>
 <pre><code>...
 // The Counter's state is preserved, whether fancy or not.
@@ -171,7 +173,7 @@ return (
 ...
 </code></pre>
 <p>One can think of them as having the same “address”, e.g., &quot;the first child of the first child of the root&quot;. This is how React matches them up between the previous and next renders, regardless of how you structure your logic.  React doesn’t know where you place the conditions in your function. All it “sees” is the tree you return.</p>
-<p>Also, the same component rendered under a different UI element--even though it's in same position under the UI element--resets the state of the component's entire subtree:</p>
+<p>Also, rendering a component under a different UI element--even if it's in the same relative position under that different UI element--resets the state of the component's entire subtree:</p>
 <pre><code>...
 // The Counter's state is destroyed if isFancy changes.
 // In React's UI tree, sitting just under &lt;div&gt; is a different
@@ -226,26 +228,25 @@ return (
 </ol>
 <h3 id="putting-same-component-in-different-position-resets-state"><a class="header" href="#putting-same-component-in-different-position-resets-state">Putting same component in different position resets state</a></h3>
 <p>This example illustrates a very tricky behavior. React creates positions for TWO <code>&lt;Counter /&gt;</code> components <em>even though one position is empty</em> due to the isFancy condition.  Therefore, state is destroyed when isFancy changes and the component is removed from one position and added to the other--but the <strong>position</strong> is there regardless.</p>
-<p>NOTE: A ternary operator can live inside a JSX expression, but an <code>if</code> statement cannot; the <code>if</code> must go outside the <code>return()</code>.</p>
 <pre><code>export default function Example() {
   const [isFancy, setIsFancy] = useState(false);
-    return (
-      &lt;div&gt;
-        { isFancy &amp;&amp; &lt;Counter isFancy={isFancy} /&gt; }
-        {!isFancy &amp;&amp; &lt;Counter isFancy={isFancy} /&gt; }
-        &lt;label&gt;
-          &lt;input
-            type=&quot;checkbox&quot;
-            checked={isFancy}
-            onChange={e =&gt; { setIsFancy(e.target.checked) } }
-          /&gt;
-          Use fancy styling
-        &lt;/label&gt;
-      &lt;/div&gt;
-    );
+  return (
+    &lt;div&gt;
+      { isFancy &amp;&amp; &lt;Counter isFancy={isFancy} /&gt; }
+      {!isFancy &amp;&amp; &lt;Counter isFancy={isFancy} /&gt; }
+      &lt;label&gt;
+        &lt;input
+          type=&quot;checkbox&quot;
+          checked={isFancy}
+          onChange={e =&gt; { setIsFancy(e.target.checked) } }
+        /&gt;
+        Use fancy styling
+      &lt;/label&gt;
+    &lt;/div&gt;
+  );
 }
 </code></pre>
-<h3 id="giving-same-component-different-identity-with-key-resets-state"><a class="header" href="#giving-same-component-different-identity-with-key-resets-state">Giving same component different identity with <code>key</code> resets state</a></h3>
+<h3 id="giving-same-component-different-identity-with-key-attribute-resets-state"><a class="header" href="#giving-same-component-different-identity-with-key-attribute-resets-state">Giving same component different identity with <code>key</code> attribute resets state</a></h3>
 <pre><code>// Resets state
 ...
 return (
@@ -258,6 +259,7 @@ return (
 )
 ...
 </code></pre>
+<p>(NOTE: A ternary operator can live inside a JSX expression, but an <code>if</code> statement cannot; the <code>if</code> must go outside the <code>return()</code>.)</p>
 <pre><code>// Does NOT reset state.  (The `id` prop does not differentiate components)
 ...
 return (
@@ -271,9 +273,9 @@ return (
 ...
 </code></pre>
 <p>Specifying a key tells React to use the key itself as part of the position, instead of their order within the parent.</p>
-<p>Remember that keys are not globally unique. They only specify the position <em>within</em> the parent.</p>
-<p>Also note that the above examples are working with drawing one component versus another; if BOTH components are being drawn, then a <code>key</code> field will serve to assign state to the correct component...see next example.</p>
-<h1 id="for-multiple-component-instances-key-field-helps-react-assign-correct-state-across-re-renders"><a class="header" href="#for-multiple-component-instances-key-field-helps-react-assign-correct-state-across-re-renders">For multiple component instances, <code>key</code> field helps React assign correct state across re-renders</a></h1>
+<p>Keys are not globally unique. They only specify the position <em>within the parent</em>.</p>
+<p>Also note that the above examples are working with drawing one component versus another; if multiple components are being drawn, then a <code>key</code> field will serve to assign state to the correct component...see next example.</p>
+<h1 id="for-multiple-instances-of-same-component-the-key-field-helps-react-assign-correct-state-across-re-renders"><a class="header" href="#for-multiple-instances-of-same-component-the-key-field-helps-react-assign-correct-state-across-re-renders">For multiple instances of same component, the <code>key</code> field helps React assign correct state across re-renders</a></h1>
 <pre><code>export default function App() {
   const [reverse, setReverse] = useState(false);
 
@@ -316,11 +318,11 @@ function Field({ label }) {
   );
 }
 </code></pre>
-<p>State is associated with the tree position. A <code>key</code> lets you specify a named position instead of relying on order.</p>
 <h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
 <ul>
 <li>React keeps state for as long as the same component is rendered at the same position.</li>
-<li>State is not kept in JSX tags. It’s associated with the tree position in which you put that JSX.</li>
+<li>State is not kept in JSX tags. It’s associated with the <em>position</em> of that JSX in the tree.</li>
+<li>A <code>key</code> lets you specify a named position instead of relying on order.</li>
 <li>You can force a subtree to reset its state by giving it a different key.</li>
 <li>Don’t nest component definitions, or you’ll reset state by accident.</li>
 </ul>
@@ -329,10 +331,10 @@ function Field({ label }) {
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../react/react-hooks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../react/state.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                            <a rel="next" href="../../react/state/reducer-for-react-state.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../../react/react-hooks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         <div style="clear: both"></div>
@@ -341,32 +343,16 @@ function Field({ label }) {
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../react/react-hooks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../react/state.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                    <a rel="next" href="../../react/state/reducer-for-react-state.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../../react/react-hooks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
