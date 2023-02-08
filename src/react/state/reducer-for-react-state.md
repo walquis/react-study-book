@@ -1,27 +1,31 @@
 # Consolidate State with a Reducer
-From [https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer).
+From [beta.reactjs.org, extracting state logic into a reducer](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer).
 
-As your components grow in complexity, it can get harder to see at a glance all the different ways in which a component’s state gets updated.
+As a component grows in complexity, it gets harder to see how its state gets updated.
 
-React reducers are a different way to handle state.  A reducer is a single function outside your component that consolidates all the state update logic into one place. 
+A **React reducer** is a single function outside your component that consolidates all the state update logic into one place. 
 
-Because the reducer function takes state as an argument, you can declare it outside of your component, which decreases the indentation level and can make your code easier to read.
+The reducer function takes state as an argument; hence, you can declare it outside of your component, and even move it to a different file and import it, which simplifies your component and makes your code easier to read.
 
-Because the reducer function is outside your component, it can be moved to a different file and imported.  Component logic can be easier to read when you separate concerns like this. Now the event handlers only specify *what happened* by dispatching actions, and the reducer function determines *how the state updates* in response to them.
+Reducers allow the component logic to separate concerns: 
+1. The event handlers only specify *what happened* by dispatching actions, and
+1. the reducer function determines *how the state updates* in response to those actions.
 
 ## Why is it called a "reducer"?
 
-The function you pass to reduce is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.
+The function you pass to reduce is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.  This behavior is reminiscent of the `reduce()` operation on arrays, which takes an array and "reduces" many values down to one:
 
-This behavior is reminiscent of the `reduce()` operation on arrays, which takes an array and "reduces" many values down to one:
 
 ```
 const arr = [1, 2, 3, 4, 5];
 const sum = arr.reduce(
+  //  The reducer accumulates its work in the "result" variable:
   (result, number) => result + number
 ); // 1 + 2 + 3 + 4 + 5
 ```
-React reducers embody the same idea: they take the state so far and the action, and return the next state. In this way, they transform sequential actions into sequential state changes.
+React reducers embody the same idea: they take the state so far (analogous to the `result` variable above) and the action (analogous to the current iteration's `number`), and return the next state.
+
+> In this way, reducers transform sequential actions into sequential state changes.
 
 You can migrate from `useState` to `useReducer` in three steps:
 

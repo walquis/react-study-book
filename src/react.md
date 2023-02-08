@@ -40,7 +40,7 @@ function AboutPage() {
 }
 ```
 
-In React, you specify a CSS class with className. It works the same way as the HTML class attribute:
+In React, you specify a CSS class with `className`. It works the same way as the HTML class attribute:
 ```
 <img className="avatar" />
 ```
@@ -64,7 +64,7 @@ return (
 ```
 NOTE the above: where Javascript supplies a JSX attribute value, quotes are not used.
 
-NOTE also, `style={{}}` is not a special syntax, but a regular {} object inside the style={ } JSX curly braces.
+NOTE also, `style={{}}` is not a special syntax, but a regular `{}` object inside the `style={ }` JSX curly braces.
 
 
 ### The ternary operator works inside JSX (unlike `if`)
@@ -91,7 +91,7 @@ return (
   <ul>{listItems}</ul>
 );
 ```
-Notice how \<li> has a key attribute. Each item in a list needs a string or number (e.g. a DB id) that is unique w.r.t. its siblings. React relies those keys to track later inserts, deletes , or reorders of the items.
+Notice how \<li> has a key attribute. Each item in a list needs a string or number (e.g. a DB id) that is unique w.r.t. its siblings. React relies on those keys to track later inserts, deletes , or reorders of the items.
 
 ### Event handlers
 Respond to events by declaring event handler functions inside components:
@@ -109,7 +109,7 @@ function MyButton() {
   );
 }
 ```
-Notice how onClick={handleClick} has no parentheses at the end! Do not _call_ the event handler function: you only need to pass it down. React will call your event handler when the user clicks the button.
+Notice how `onClick={handleClick}` has no parentheses at the end. This is because we do not want to _call_ the event handler function yet, but only pass it down (it's a "callback").  React will call your event handler when the user clicks the button.
 
 ### How Components share data and update together
 To make both MyButton components display the same count and update together, you need to move the state from the individual buttons “upwards” to the closest component containing all of them.
@@ -118,8 +118,8 @@ To make both MyButton components display the same count and update together, you
 
 ## Component Lifecycle
 1. Mount - create component
-  - Before: ComponentWillMount()
-  - After: ComponentDidMount()
+  - Before: `ComponentWillMount()`
+  - After: `ComponentDidMount()`
 2. Update - change state
   - TODO from here...
 3. Unmount - destroy component

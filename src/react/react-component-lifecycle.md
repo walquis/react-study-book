@@ -1,5 +1,5 @@
 ## Lifecycle Methods
-https://www.codecademy.com/resources/docs/react/lifecycle-methods
+From [codecademy.com, lifecycle-methods](https://www.codecademy.com/resources/docs/react/lifecycle-methods)
 
 In React, lifecycle methods are unique event listeners that listen for changes during certain points a component‘s lifecycle. A component’s lifecycle usually runs in this order:
 
@@ -7,6 +7,7 @@ In React, lifecycle methods are unique event listeners that listen for changes d
 - Updating an existing component.
 - Catching any errors associated with a component render-gone-wrong.
 - Unmounting a component and removing it from the DOM.
-- Lifecycle methods were originally exclusive to class components. But thanks to React hooks, even functional components can work with their lifecycle.
+
+Lifecycle methods were originally exclusive to class components. But thanks to React hooks, functional components can also 'hook' into the component lifecycle.
 
 

@@ -1,12 +1,13 @@
 # Setting and Preserving State
 
-From https://beta.reactjs.org/learn/preserving-and-resetting-state
+From [beta.reactjs.org, preserving and resetting state](https://beta.reactjs.org/learn/preserving-and-resetting-state)
 
-## Same component at the same position preserves state
 
-React associates each piece of state it’s holding with the correct component by where that component sits in the UI tree.
+For each component, React associates its state with that component's location in the UI tree.
 
-React preserves a component’s state for as long as the same component is being rendered at the same position in the UI tree.
+React preserves a component’s state for as long as that same component is being rendered at the same position in the UI tree.
+
+> Same component at the same position preserves state
 
 When a component gets removed, or a different component gets rendered at the same position, React destroys its state.
 
@@ -45,7 +46,7 @@ return (
 ```
 One can think of them as having the same “address”, e.g., "the first child of the first child of the root". This is how React matches them up between the previous and next renders, regardless of how you structure your logic.  React doesn’t know where you place the conditions in your function. All it “sees” is the tree you return.
 
-Also, the same component rendered under a different UI element\--even though it's in same position under the UI element\--resets the state of the component's entire subtree:
+Also, rendering a component under a different UI element\--even if it's in the same relative position under that different UI element\--resets the state of the component's entire subtree:
 
 ```
 ...
@@ -105,28 +106,26 @@ Two approaches:
 
 ### Putting same component in different position resets state
 This example illustrates a very tricky behavior. React creates positions for TWO `<Counter />` components *even though one position is empty* due to the isFancy condition.  Therefore, state is destroyed when isFancy changes and the component is removed from one position and added to the other\--but the **position** is there regardless.
-
-NOTE: A ternary operator can live inside a JSX expression, but an `if` statement cannot; the `if` must go outside the `return()`.
 ```
 export default function Example() {
   const [isFancy, setIsFancy] = useState(false);
-    return (
-      <div>
-        { isFancy && <Counter isFancy={isFancy} /> }
-        {!isFancy && <Counter isFancy={isFancy} /> }
-        <label>
-          <input
-            type="checkbox"
-            checked={isFancy}
-            onChange={e => { setIsFancy(e.target.checked) } }
-          />
-          Use fancy styling
-        </label>
-      </div>
-    );
+  return (
+    <div>
+      { isFancy && <Counter isFancy={isFancy} /> }
+      {!isFancy && <Counter isFancy={isFancy} /> }
+      <label>
+        <input
+          type="checkbox"
+          checked={isFancy}
+          onChange={e => { setIsFancy(e.target.checked) } }
+        />
+        Use fancy styling
+      </label>
+    </div>
+  );
 }
 ```
-### Giving same component different identity with `key` resets state
+### Giving same component different identity with `key` attribute resets state
 ```
 // Resets state
 ...
@@ -140,6 +139,7 @@ return (
 )
 ...
 ```
+(NOTE: A ternary operator can live inside a JSX expression, but an `if` statement cannot; the `if` must go outside the `return()`.)
 ```
 // Does NOT reset state.  (The `id` prop does not differentiate components)
 ...
@@ -155,12 +155,12 @@ return (
 ```
 Specifying a key tells React to use the key itself as part of the position, instead of their order within the parent.
 
-Remember that keys are not globally unique. They only specify the position *within* the parent.
+Keys are not globally unique. They only specify the position *within the parent*.
 
-Also note that the above examples are working with drawing one component versus another; if BOTH components are being drawn, then a `key` field will serve to assign state to the correct component...see next example.
+Also note that the above examples are working with drawing one component versus another; if multiple components are being drawn, then a `key` field will serve to assign state to the correct component...see next example.
 
 
-# For multiple component instances, `key` field helps React assign correct state across re-renders
+# For multiple instances of same component, the `key` field helps React assign correct state across re-renders
 ```
 export default function App() {
   const [reverse, setReverse] = useState(false);
@@ -204,10 +204,10 @@ function Field({ label }) {
   );
 }
 ```
-State is associated with the tree position. A `key` lets you specify a named position instead of relying on order.
 
 ## Summary
 - React keeps state for as long as the same component is rendered at the same position.
-- State is not kept in JSX tags. It’s associated with the tree position in which you put that JSX.
+- State is not kept in JSX tags. It’s associated with the *position* of that JSX in the tree.
+- A `key` lets you specify a named position instead of relying on order.
 - You can force a subtree to reset its state by giving it a different key.
 - Don’t nest component definitions, or you’ll reset state by accident.
