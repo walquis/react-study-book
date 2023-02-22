@@ -13,7 +13,7 @@ Reducers allow the component logic to separate concerns:
 
 ## Why is it called a "reducer"?
 
-The function you pass to reduce is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.  This behavior is reminiscent of the `reduce()` operation on arrays, which takes an array and "reduces" many values down to one:
+The function you pass to `reduce()` is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.  This behavior is reminiscent of the `reduce()` operation on arrays, which takes an array and "reduces" many values down to one:
 
 
 ```
@@ -33,15 +33,13 @@ You can migrate from `useState` to `useReducer` in three steps:
 1. **Write a reducer function.**
 1. Wire up the reducer to your component.
 
-## Event handers call `dispatch(action)`.
+## Event handers call `dispatch(action)`
 
 Managing state with reducers differs from directly setting state: Instead of telling React “what to do” by setting state, you specify “what the user just did” by dispatching “actions” from your event handlers.  This is more expressive of the user’s intent.
 
 So instead of “setting state” via an event handler, event handlers dispatch an action\--e.g. “added/changed/deleted"\--on some state  (the state update logic still happens, but lives elsewhere).
 
-An action object can have any shape.
-
-By convention, it is common to give it a string type that describes what happened, and pass any additional information in other fields. The type is specific to a component, so in this example either 'added' or 'added_task' would be fine.
+An action object can have any shape.  It is conventional to give it a string `type` that describes what happened, and pass any additional info in other fields. The value of `type` is specific to a component, so in this example either `'added'` or `'added_task'` would be fine.
 
 ```
 export default function TaskApp() {
@@ -99,7 +97,7 @@ with useReducer like so:
 ```
 const [tasks, dispatch] = useReducer(myReducer, initialState);
 ```
-All the state-setting that an event handler requires will now be done by myReducer, called via the `dispatch()` function returned from `useReducer()`.
+You're basically collecting `setState()` and other state-handling logic all into the `myReducer()` reducer you've written.  Now you call `dispatch()` everywhere, which invokes your reducer for all the state-handling.  To put it another way:  All the state-setting that an event handler requires will now be done by myReducer, called via the `dispatch()` function returned from `useReducer()`.
 
 ## `useState` versus `useReducer` 
 - **Code size**: Generally, `useState` requires less code upfront. `useReducer` means writing both a reducer function and dispatch actions. However, `useReducer` can DRY out code if many event handlers modify state in a similar way.

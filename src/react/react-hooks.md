@@ -1,4 +1,4 @@
-https://testdriven.io/blog/react-hooks-primer/ - February 27th, 2019
+Excerpted from [testdriven.io, React Hooks Primer](https://testdriven.io/blog/react-hooks-primer/) - February 27th, 2019
 
 React hooks help ease the aggravation of using complex higher order components to re-use stateful logic and relying on lifecycle methods that trigger unrelated logic.
 
@@ -6,20 +6,15 @@ Outline:
 - What are hooks?
 - Why were they implemented in React?
 - How are hooks used?
-- Are there rules to using hooks?
-- What is a custom hook?
-- When should I use custom hooks?
-- What are the benefits of using custom hooks?
+- What are the rules for using hooks?
+- (Not covering custom hooks here.  See above link for that)
 
 ## What are hooks?
 Hooks give functions class-like abilities, including state and side-effects, that let you “hook into” a component’s render cycle.
 
-With state hooks, you can re-use stateful logic between components, which simplifies component logic and lets you skip writing classes.
-
-Add state to the component with the `useState()` Hook.
+The `useState()` hook adds state to a component, letting you share stateful logic between components, thus simplifying component logic and letting you avoid writing classes.
 
 ## Why were hooks implemented in React?
-
 ### Hooks simplify component logic.
 When the inevitable exponential growth of logic appears in your application, simple components become a dizzying abyss of stateful logic and side effects. Lifecycle methods become cluttered with unrelated methods. A component's responsibilities grow and become inseparable.
 
@@ -83,9 +78,9 @@ export default function App() {
 ```
 
 ## The useEffect() hook method
-Without `useEffect()`, state only flows one way: from the top down.  But to change the state according to user input, you'll need to support data flowing the other way: the form components deep in the hierarchy need to update the state in the topmost common component.
+Without `useEffect()`, state only flows one way: from the top down.  But to change the state according to user input, you'll need to support data flowing the other way: the **form components** deep in the hierarchy need to update the state in the topmost common component.
 
-Use the `useEffect()` hook as you would common lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`:  Bind a function to the state variable that modifies pieces of the display that depend on that state variable.
+Use the `useEffect()` hook as you would common lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`:  Bind a function to the state variable that **modifies pieces of the display that depend on that state variable**.
 
 ```
 // check out the variable count in the array at the end...
