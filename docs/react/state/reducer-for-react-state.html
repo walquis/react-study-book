@@ -145,7 +145,7 @@
 <li>the reducer function determines <em>how the state updates</em> in response to those actions.</li>
 </ol>
 <h2 id="why-is-it-called-a-reducer"><a class="header" href="#why-is-it-called-a-reducer">Why is it called a &quot;reducer&quot;?</a></h2>
-<p>The function you pass to reduce is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.  This behavior is reminiscent of the <code>reduce()</code> operation on arrays, which takes an array and &quot;reduces&quot; many values down to one:</p>
+<p>The function you pass to <code>reduce()</code> is called a “reducer”, because it takes the result so far and the current item, and then returns the next result.  This behavior is reminiscent of the <code>reduce()</code> operation on arrays, which takes an array and &quot;reduces&quot; many values down to one:</p>
 <pre><code>const arr = [1, 2, 3, 4, 5];
 const sum = arr.reduce(
   //  The reducer accumulates its work in the &quot;result&quot; variable:
@@ -162,11 +162,10 @@ const sum = arr.reduce(
 <li><strong>Write a reducer function.</strong></li>
 <li>Wire up the reducer to your component.</li>
 </ol>
-<h2 id="event-handers-call-dispatchaction"><a class="header" href="#event-handers-call-dispatchaction">Event handers call <code>dispatch(action)</code>.</a></h2>
+<h2 id="event-handers-call-dispatchaction"><a class="header" href="#event-handers-call-dispatchaction">Event handers call <code>dispatch(action)</code></a></h2>
 <p>Managing state with reducers differs from directly setting state: Instead of telling React “what to do” by setting state, you specify “what the user just did” by dispatching “actions” from your event handlers.  This is more expressive of the user’s intent.</p>
 <p>So instead of “setting state” via an event handler, event handlers dispatch an action--e.g. “added/changed/deleted&quot;--on some state  (the state update logic still happens, but lives elsewhere).</p>
-<p>An action object can have any shape.</p>
-<p>By convention, it is common to give it a string type that describes what happened, and pass any additional information in other fields. The type is specific to a component, so in this example either 'added' or 'added_task' would be fine.</p>
+<p>An action object can have any shape.  It is conventional to give it a string <code>type</code> that describes what happened, and pass any additional info in other fields. The value of <code>type</code> is specific to a component, so in this example either <code>'added'</code> or <code>'added_task'</code> would be fine.</p>
 <pre><code>export default function TaskApp() {
   const [state, dispatch] = useReducer(myReducer, initialState);
 
@@ -209,7 +208,7 @@ const sum = arr.reduce(
 <p>with useReducer like so:</p>
 <pre><code>const [tasks, dispatch] = useReducer(myReducer, initialState);
 </code></pre>
-<p>All the state-setting that an event handler requires will now be done by myReducer, called via the <code>dispatch()</code> function returned from <code>useReducer()</code>.</p>
+<p>You're basically collecting <code>setState()</code> and other state-handling logic all into the <code>myReducer()</code> reducer you've written.  Now you call <code>dispatch()</code> everywhere, which invokes your reducer for all the state-handling.  To put it another way:  All the state-setting that an event handler requires will now be done by myReducer, called via the <code>dispatch()</code> function returned from <code>useReducer()</code>.</p>
 <h2 id="usestate-versus-usereducer"><a class="header" href="#usestate-versus-usereducer"><code>useState</code> versus <code>useReducer</code></a></h2>
 <ul>
 <li><strong>Code size</strong>: Generally, <code>useState</code> requires less code upfront. <code>useReducer</code> means writing both a reducer function and dispatch actions. However, <code>useReducer</code> can DRY out code if many event handlers modify state in a similar way.</li>
@@ -250,6 +249,22 @@ const sum = arr.reduce(
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>

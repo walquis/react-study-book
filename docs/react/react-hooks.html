@@ -134,22 +134,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>https://testdriven.io/blog/react-hooks-primer/ - February 27th, 2019</p>
+                        <p>Excerpted from <a href="https://testdriven.io/blog/react-hooks-primer/">testdriven.io, React Hooks Primer</a> - February 27th, 2019</p>
 <p>React hooks help ease the aggravation of using complex higher order components to re-use stateful logic and relying on lifecycle methods that trigger unrelated logic.</p>
 <p>Outline:</p>
 <ul>
 <li>What are hooks?</li>
 <li>Why were they implemented in React?</li>
 <li>How are hooks used?</li>
-<li>Are there rules to using hooks?</li>
-<li>What is a custom hook?</li>
-<li>When should I use custom hooks?</li>
-<li>What are the benefits of using custom hooks?</li>
+<li>What are the rules for using hooks?</li>
+<li>(Not covering custom hooks here.  See above link for that)</li>
 </ul>
 <h2 id="what-are-hooks"><a class="header" href="#what-are-hooks">What are hooks?</a></h2>
 <p>Hooks give functions class-like abilities, including state and side-effects, that let you “hook into” a component’s render cycle.</p>
-<p>With state hooks, you can re-use stateful logic between components, which simplifies component logic and lets you skip writing classes.</p>
-<p>Add state to the component with the <code>useState()</code> Hook.</p>
+<p>The <code>useState()</code> hook adds state to a component, letting you share stateful logic between components, thus simplifying component logic and letting you avoid writing classes.</p>
 <h2 id="why-were-hooks-implemented-in-react"><a class="header" href="#why-were-hooks-implemented-in-react">Why were hooks implemented in React?</a></h2>
 <h3 id="hooks-simplify-component-logic"><a class="header" href="#hooks-simplify-component-logic">Hooks simplify component logic.</a></h3>
 <p>When the inevitable exponential growth of logic appears in your application, simple components become a dizzying abyss of stateful logic and side effects. Lifecycle methods become cluttered with unrelated methods. A component's responsibilities grow and become inseparable.</p>
@@ -201,8 +198,8 @@ export default function App() {
 }
 </code></pre>
 <h2 id="the-useeffect-hook-method"><a class="header" href="#the-useeffect-hook-method">The useEffect() hook method</a></h2>
-<p>Without <code>useEffect()</code>, state only flows one way: from the top down.  But to change the state according to user input, you'll need to support data flowing the other way: the form components deep in the hierarchy need to update the state in the topmost common component.</p>
-<p>Use the <code>useEffect()</code> hook as you would common lifecycle methods like <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code>:  Bind a function to the state variable that modifies pieces of the display that depend on that state variable.</p>
+<p>Without <code>useEffect()</code>, state only flows one way: from the top down.  But to change the state according to user input, you'll need to support data flowing the other way: the <strong>form components</strong> deep in the hierarchy need to update the state in the topmost common component.</p>
+<p>Use the <code>useEffect()</code> hook as you would common lifecycle methods like <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code>:  Bind a function to the state variable that <strong>modifies pieces of the display that depend on that state variable</strong>.</p>
 <pre><code>// check out the variable count in the array at the end...
 useEffect(() =&gt; {
   document.title = `You clicked ${count} times`;
@@ -276,6 +273,22 @@ useEffect(() =&gt; {
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
