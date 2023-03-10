@@ -360,20 +360,48 @@ for (let i of arr) {
 <p>The syntax of destructuring supports variable declaration and assignment.</p>
 <p><a id="array-destructuring"></a></p>
 <h2 id="array-destructuring"><a class="header" href="#array-destructuring">Array destructuring</a></h2>
-<p>When destructuring an array, values are extracted by positions (or index) in an assignment.
-From <a href="https://www.javatpoint.com/es6-array-destructuring">JavaTpoint, array destructuting</a></p>
+<p>When destructuring an array, values are extracted based on position (or index) in an assignment:</p>
+<pre><code>&gt; const a = ['a','b','c','d','e'];
+&gt; let [f,g,h] = a
+&gt; f
+'a'
+&gt; h
+'c'
+&gt; let therest
+&gt; [f,g,...therest] = a
+&gt; therest
+[ 'c', 'd', 'e' ]
+</code></pre>
+<p>For more examples, see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN web docs, destructuring assignment</a>.</p>
 <p><a id="object-destructuring"></a></p>
 <h2 id="object-destructuring"><a class="header" href="#object-destructuring">Object destructuring</a></h2>
-<p>In object destructuring, values are extracted by the keys.</p>
+<p>In object destructuring, values are extracted based on the keys.</p>
 <blockquote>
-<p>Syntax shorthand: Use curly brackets to assign an object's properties to variables of the same name as the corresponding key.</p>
+<p>Syntax shorthand: Use curly brackets on <strong>left-hand side</strong> to assign an object's properties to variables of the same name as the corresponding key.</p>
 </blockquote>
-<pre><code>const num = {x: 100, z: 300, y: 200};  
+<pre><code>&gt; const num = {x: 100, y: 200, z: 300}
 // Must use key names on LHS... {a,b} will not work here!
-const {x, y} = num;  
+&gt; const {x, z} = num
+&gt; z
+300
 </code></pre>
-<h3 id="inline-destructuring-of-function-parameters-such-as-component-props"><a class="header" href="#inline-destructuring-of-function-parameters-such-as-component-props">Inline destructuring of function parameters, such as component props</a></h3>
-<p>I ran across this succinct notation when I neglected curlies around the <code>name</code> parameter in a component function def:</p>
+<p>This is an example of a &quot;binding&quot; pattern, in which the pattern starts with a declaration keyword (<code>let</code>, <code>var</code>, or <code>const</code>).  Here is another:</p>
+<pre><code>const obj = { a: 1, b: { c: 2 } };
+const {
+  a,
+  b: { c: d },
+} = obj;
+// Two variables are bound: `a` and `d`
+</code></pre>
+<p>There are also &quot;assignment&quot; patterns, in which the pattern does NOT start with a declaration keyword.  For instance:</p>
+<pre><code>const numbers = [];
+const obj = { a: 1, b: 2 };
+({ a: numbers[0], b: numbers[1] } = obj);
+// The properties `a` and `b` are assigned to properties of `numbers`
+</code></pre>
+<p>For more examples, see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN web docs, destructuring assignment</a>.</p>
+<h3 id="my-encounter-with-inline-destructuring-of-component-props-passed-to-a-function"><a class="header" href="#my-encounter-with-inline-destructuring-of-component-props-passed-to-a-function">My encounter with inline destructuring of component props passed to a function</a></h3>
+<p>I ran across the above syntax shorthand notation when I neglected curlies around the <code>name</code> parameter in a component function definition:</p>
 <pre><code>export default function ProductCategoryRow(name) {  // This is wrong!
   ...
   return &lt;div&gt;
@@ -381,7 +409,7 @@ const {x, y} = num;
   &lt;/div&gt;
 }
 </code></pre>
-<p>Although Webpack happily compiled it, a runtime error appeared on the console:</p>
+<p>Webpack happily compiled it, but a runtime error appeared on the console:</p>
 <pre><code>Uncaught Error: Objects are not valid as a React child
 (found: object with keys {name}). If you meant to render
 a collection of children, use an array instead
@@ -389,13 +417,22 @@ a collection of children, use an array instead
 <p>I was calling it from another component thusly:</p>
 <pre><code>&lt;ProductCategoryRow name=&quot;Fruits&quot; /&gt;
 </code></pre>
-<p>What happened?  The <code>name=&quot;Fruits&quot;</code> syntax passed a <code>{name: &quot;Fruits&quot;}</code> prop object.  So without curlies around the function def, <code>name</code> was assigned <code>{name: &quot;Fruits&quot;}</code>, not <code>&quot;Fruits&quot;</code> as I intended.  Subsequently, <code>name</code> in the function body returned an object, not a string.  Indeed, it returned an &quot;object with keys {name}&quot;, exactly as the error indicated.  React can render a string like <code>Fruits</code>, but it has no way to render an object.</p>
-<p>So <code>name</code> in the function body was returning <code>{name: &quot;Fruits&quot;}</code>--an object, not a string.  One could dereference it, as <code>{name.name}</code>, which is valid but odd.  Or use a <code>props</code> param, and say <code>{props.name}</code>--decidedly more readable, but still wordy.</p>
-<p>OR... <strong>since ES6 supports destructuring (and unpacking) inline in the parameter list, by means of the {} syntax in that context</strong>, I could inline-destructure in the function params using <code>{name},</code> which is 'way more elegant, assuming I speak ES6 destructuring.</p>
-<p>Now <code>name</code> in the function body is a string, because inline-destructuring <code>{...}</code> syntax extracted it from the <code>{name: &quot;Fruits&quot;}</code> props object passed from the component.</p>
+<p>What happened?  The <code>name=&quot;Fruits&quot;</code> syntax passed a <code>{name: &quot;Fruits&quot;}</code> prop object.  So without curlies around the function definition, <code>name</code> was assigned <code>{name: &quot;Fruits&quot;}</code>, and not <code>&quot;Fruits&quot;</code> as I intended.  Subsequently, <code>name</code> in the function body returned an object, not a string.  Indeed, it returned an &quot;object with keys {name}&quot;, exactly as the error indicated.  React can render a string like <code>Fruits</code>, but it has no way to render an object.</p>
+<p>Were we to stick with <code>name</code> in the function body as the object <code>{name: &quot;Fruits&quot;}</code>, we could de-reference it, as <code>{name.name}</code>, which is valid but odd.  Or, we could call our param <code>props</code> instead of <code>name</code>, and say <code>{props.name}</code> -- more readable, but still wordy.</p>
+<p>So, <strong>since ES6 supports destructuring (and unpacking) inline in the parameter list, by means of the {} syntax in that context</strong>, I can pick out just the <code>name</code> property from the passed object, using the <code>{name}</code> shorthand -- way more elegant, assuming I speak ES6 destructuring.</p>
+<pre><code>export default function ProductCategoryRow( {name} ) {  // Nice!
+  ...
+</code></pre>
+<p>Now <code>name</code> in the function body is the string <code>&quot;Fruits&quot;</code>, because inline-destructuring <code>{...}</code> syntax extracted it from the <code>{name: &quot;Fruits&quot;}</code> props object passed from the component.</p>
 <p>These two links help with understanding inline destructuring (and unpacking) of function parameters:</p>
 <p><a href="https://bobbyhadz.com/blog/react-objects-are-not-valid-as-react-child">https://bobbyhadz.com/blog/react-objects-are-not-valid-as-react-child</a>
 <a href="https://stackoverflow.com/questions/58574905/destructured-object-as-function-parameter">https://stackoverflow.com/questions/58574905/destructured-object-as-function-parameter</a></p>
+<h2 id="destructuring-with-import-statements"><a class="header" href="#destructuring-with-import-statements">'Destructuring' with import statements</a></h2>
+<p>What do these curlies mean?</p>
+<pre><code>import React, { useState } from 'react';
+</code></pre>
+<p>The curly braces <code>{}</code> are used to import named bindings from a module, using syntax that looks and acts a lot like destructuring (but <a href="https://qntm.org/snippets">isn't actually</a>).</p>
+<p>There is a good answer here (even though they mistakenly call it 'destructuring'): <a href="https://stackoverflow.com/questions/51701042/when-do-we-use-in-javascript-imports/51701099#51701099">https://stackoverflow.com/questions/51701042/when-do-we-use-in-javascript-imports/51701099#51701099</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><!DOCTYPE html>
 <html>
 <head>
@@ -970,7 +1007,7 @@ const sum = arr.reduce(
 </ol>
 <h2 id="event-handers-call-dispatchaction"><a class="header" href="#event-handers-call-dispatchaction">Event handers call <code>dispatch(action)</code></a></h2>
 <p>Managing state with reducers differs from directly setting state: Instead of telling React “what to do” by setting state, you specify “what the user just did” by dispatching “actions” from your event handlers.  This is more expressive of the user’s intent.</p>
-<p>So instead of “setting state” via an event handler, event handlers dispatch an action--e.g. “added/changed/deleted&quot;--on some state  (the state update logic still happens, but lives elsewhere).</p>
+<p>So instead of “setting state”, event handlers dispatch an action--e.g. “added/changed/deleted&quot;--on some state.  The state update logic still happens, but lives elsewhere.</p>
 <p>An action object can have any shape.  It is conventional to give it a string <code>type</code> that describes what happened, and pass any additional info in other fields. The value of <code>type</code> is specific to a component, so in this example either <code>'added'</code> or <code>'added_task'</code> would be fine.</p>
 <pre><code>export default function TaskApp() {
   const [state, dispatch] = useReducer(myReducer, initialState);
