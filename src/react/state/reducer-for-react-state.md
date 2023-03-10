@@ -37,7 +37,7 @@ You can migrate from `useState` to `useReducer` in three steps:
 
 Managing state with reducers differs from directly setting state: Instead of telling React “what to do” by setting state, you specify “what the user just did” by dispatching “actions” from your event handlers.  This is more expressive of the user’s intent.
 
-So instead of “setting state” via an event handler, event handlers dispatch an action\--e.g. “added/changed/deleted"\--on some state  (the state update logic still happens, but lives elsewhere).
+So instead of “setting state”, event handlers dispatch an action\--e.g. “added/changed/deleted"\--on some state.  The state update logic still happens, but lives elsewhere.
 
 An action object can have any shape.  It is conventional to give it a string `type` that describes what happened, and pass any additional info in other fields. The value of `type` is specific to a component, so in this example either `'added'` or `'added_task'` would be fine.
 
