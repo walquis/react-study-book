@@ -1,4 +1,4 @@
-See [MDBook](https://walquis.github.io/react-study-book/)
+See [the MDBook](https://walquis.github.io/react-study-book/) here.
 
 ## Installing
 
