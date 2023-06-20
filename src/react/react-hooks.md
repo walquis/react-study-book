@@ -32,7 +32,7 @@ Add state variables at the top of the component function that "owns" the state, 
 import { useState, useEffect } from 'react';
 ```
 
-The way to use the state hook is to [destructure](/es6/destructuring.html) it and set the initial value. The first parameter stores the state, the second is a function to update the state.
+The way to use the state hook is to [destructure](../es6/destructuring.html) it and set the initial value. The first parameter stores the state, the second is a function to update the state.
 
 For example:
 
